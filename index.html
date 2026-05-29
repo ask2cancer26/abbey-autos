@@ -1,0 +1,778 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Abbey Autos | MOT · Servicing · Repairs | Woolwich, SE18</title>
+<meta name="description" content="Abbey Autos — Woolwich's trusted garage since 1968. MOT testing, full servicing, body shop repairs, air conditioning, tyres and more. Call 020 8854 3890.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;600;700;800&family=Barlow:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --black:    #111111;
+  --charcoal: #222222;
+  --mid-grey: #555555;
+  --border:   #e0e0e0;
+  --bg:       #f7f6f2;
+  --white:    #ffffff;
+  --sage:     #8fa88a;
+  --sage-lt:  #eef2ec;
+  --red:      #c0392b;
+  --red-lt:   #fdf1f0;
+  --silver:   #aaaaaa;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Barlow', sans-serif;
+  background: var(--white);
+  color: var(--charcoal);
+  font-size: 16px;
+  line-height: 1.65;
+  overflow-x: hidden;
+}
+
+/* ── NAV ── */
+nav {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 100;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  padding: 0 2.5rem;
+  height: 64px;
+  display: flex; align-items: center; justify-content: space-between;
+}
+.nav-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: 1.55rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--black);
+  text-decoration: none;
+}
+.nav-logo .dot { color: var(--red); }
+.nav-links { display: flex; gap: 2rem; list-style: none; align-items: center; }
+.nav-links a {
+  font-size: 0.78rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--mid-grey); text-decoration: none;
+  transition: color 0.2s;
+}
+.nav-links a:hover { color: var(--black); }
+.nav-cta {
+  background: var(--red) !important;
+  color: var(--white) !important;
+  padding: 0.5rem 1.1rem;
+  border-radius: 2px;
+}
+.nav-cta:hover { opacity: 0.9; }
+
+/* ── HERO ── */
+.hero {
+  padding: 120px 2.5rem 80px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+  display: grid;
+  grid-template-columns: 1fr 420px;
+  gap: 60px;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+.hero-tag {
+  display: inline-flex; align-items: center; gap: 0.6rem;
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.2em;
+  text-transform: uppercase; color: var(--red);
+  margin-bottom: 1.25rem;
+}
+.hero-tag-line { width: 28px; height: 2px; background: var(--red); }
+
+h1 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800;
+  font-size: clamp(3.2rem, 7vw, 5.5rem);
+  line-height: 0.94;
+  letter-spacing: 0.01em;
+  text-transform: uppercase;
+  color: var(--black);
+  margin-bottom: 1.4rem;
+}
+h1 .red { color: var(--red); }
+
+.hero-body {
+  font-size: 1.05rem; font-weight: 300; color: var(--mid-grey);
+  max-width: 460px; margin-bottom: 2.25rem; line-height: 1.75;
+}
+
+.btn-primary {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--black); color: var(--white);
+  padding: 0.9rem 2rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; text-decoration: none;
+  border-radius: 2px;
+  transition: background 0.2s, transform 0.15s;
+}
+.btn-primary:hover { background: var(--red); transform: translateY(-1px); }
+
+.btn-outline {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  border: 1.5px solid var(--border);
+  color: var(--mid-grey);
+  padding: 0.9rem 2rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; text-decoration: none;
+  border-radius: 2px;
+  transition: border-color 0.2s, color 0.2s;
+}
+.btn-outline:hover { border-color: var(--black); color: var(--black); }
+
+.hero-btns { display: flex; gap: 0.75rem; flex-wrap: wrap; }
+
+/* Hero right — signage card */
+.hero-signage {
+  background: var(--black);
+  border-radius: 4px;
+  padding: 3rem 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.hero-signage::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0;
+  height: 4px; background: var(--red);
+}
+.signage-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 3rem;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: var(--white); line-height: 1; margin-bottom: 0.4rem;
+}
+.signage-sub {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 600; font-size: 0.95rem;
+  letter-spacing: 0.22em; text-transform: uppercase;
+  color: var(--silver); margin-bottom: 2rem;
+}
+.signage-divider { height: 1px; background: rgba(255,255,255,0.1); margin-bottom: 1.75rem; }
+.signage-stats { display: grid; grid-template-columns: 1fr 1fr; gap: 1.5rem; }
+.s-stat-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 2.2rem;
+  color: var(--white); line-height: 1;
+}
+.s-stat-num sup { font-size: 1rem; color: var(--red); }
+.s-stat-label {
+  font-size: 0.7rem; font-weight: 500; letter-spacing: 0.12em;
+  text-transform: uppercase; color: var(--silver); margin-top: 0.2rem;
+}
+.signage-est {
+  margin-top: 2rem; padding-top: 1.5rem;
+  border-top: 1px solid rgba(255,255,255,0.1);
+  font-size: 0.72rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: var(--silver);
+  display: flex; justify-content: space-between;
+}
+
+/* ── TICKER ── */
+.ticker {
+  background: var(--black);
+  padding: 0.75rem 0;
+  overflow: hidden; white-space: nowrap;
+}
+.ticker-inner { display: inline-block; animation: ticker 30s linear infinite; }
+.ticker-inner span {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.78rem; font-weight: 600; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(255,255,255,0.65);
+  padding: 0 2rem;
+}
+.ticker-inner span::before { content: '■'; color: var(--red); margin-right: 2rem; font-size: 0.4rem; vertical-align: middle; }
+@keyframes ticker { from { transform: translateX(0); } to { transform: translateX(-50%); } }
+
+/* ── SECTION SHARED ── */
+section { padding: 90px 2.5rem; }
+.section-inner { max-width: 1160px; margin: 0 auto; }
+.section-tag {
+  font-size: 0.7rem; font-weight: 600; letter-spacing: 0.22em;
+  text-transform: uppercase; color: var(--red); margin-bottom: 0.5rem;
+}
+h2 {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: clamp(2rem, 4.5vw, 3rem);
+  letter-spacing: 0.02em; text-transform: uppercase; line-height: 1;
+  color: var(--black); margin-bottom: 0.75rem;
+}
+.section-intro {
+  font-size: 1rem; font-weight: 300; color: var(--mid-grey);
+  max-width: 500px; margin-bottom: 3.5rem; line-height: 1.75;
+}
+
+/* ── SERVICES ── */
+#services { background: var(--bg); }
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 1px;
+  background: var(--border);
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+}
+.service-card {
+  background: var(--white);
+  padding: 2rem 1.75rem;
+  transition: background 0.2s;
+  position: relative;
+}
+.service-card:hover { background: var(--bg); }
+.service-card::after {
+  content: ''; position: absolute;
+  top: 0; left: 0; right: 0; height: 3px;
+  background: var(--red);
+  transform: scaleX(0); transform-origin: left;
+  transition: transform 0.25s ease;
+}
+.service-card:hover::after { transform: scaleX(1); }
+.service-num {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 0.72rem;
+  letter-spacing: 0.18em; color: var(--silver);
+  margin-bottom: 1rem;
+}
+.service-name {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 1.2rem;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  color: var(--black); margin-bottom: 0.5rem;
+}
+.service-desc { font-size: 0.85rem; font-weight: 300; color: var(--mid-grey); line-height: 1.65; }
+
+/* ── ABOUT ── */
+#about { background: var(--white); }
+.about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.about-body { font-size: 1rem; font-weight: 300; color: var(--mid-grey); line-height: 1.8; margin-bottom: 1.25rem; }
+.trust-list { list-style: none; margin: 2rem 0; display: flex; flex-direction: column; gap: 0.75rem; }
+.trust-list li {
+  display: flex; align-items: center; gap: 0.75rem;
+  font-size: 0.88rem; font-weight: 400; color: var(--charcoal);
+}
+.trust-check {
+  width: 20px; height: 20px; background: var(--black); border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.6rem; color: white; flex-shrink: 0;
+}
+.about-panel {
+  background: var(--black); border-radius: 4px; overflow: hidden;
+}
+.about-panel-header {
+  background: var(--red); padding: 1.25rem 1.75rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 700; font-size: 0.85rem; letter-spacing: 0.15em;
+  text-transform: uppercase; color: white;
+}
+.about-panel-body { padding: 1.75rem; }
+.panel-row {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 0.85rem 0; border-bottom: 1px solid rgba(255,255,255,0.08);
+}
+.panel-row:last-child { border-bottom: none; }
+.panel-label { font-size: 0.78rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--silver); }
+.panel-val { font-family: 'Barlow Condensed', sans-serif; font-weight: 600; font-size: 1rem; color: white; text-align: right; }
+
+/* ── REVIEWS ── */
+#reviews { background: var(--bg); }
+.reviews-top {
+  display: flex; justify-content: space-between; align-items: flex-end;
+  margin-bottom: 3rem; flex-wrap: wrap; gap: 1.5rem;
+}
+.google-score {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 4px; padding: 1rem 1.5rem;
+  display: flex; align-items: center; gap: 1rem;
+}
+.g-circle {
+  width: 36px; height: 36px; border-radius: 50%;
+  background: #4285f4; display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; font-weight: 700; color: white;
+  font-family: Arial, sans-serif; flex-shrink: 0;
+}
+.g-rating {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 1.6rem; color: var(--black); line-height: 1;
+}
+.g-stars { color: #f4b400; font-size: 0.75rem; letter-spacing: 0.05em; }
+.g-count { font-size: 0.72rem; color: var(--mid-grey); margin-top: 0.15rem; }
+
+.reviews-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 1.5rem;
+}
+.review-card {
+  background: var(--white); border: 1px solid var(--border);
+  border-radius: 4px; padding: 1.75rem;
+  transition: box-shadow 0.2s, transform 0.2s;
+}
+.review-card:hover { box-shadow: 0 4px 20px rgba(0,0,0,0.06); transform: translateY(-2px); }
+.r-stars { color: #f4b400; font-size: 0.8rem; margin-bottom: 1rem; }
+.r-text {
+  font-size: 0.92rem; font-weight: 300; color: var(--charcoal);
+  line-height: 1.75; margin-bottom: 1.25rem; font-style: italic;
+}
+.r-author { display: flex; align-items: center; gap: 0.75rem; }
+.r-avatar {
+  width: 34px; height: 34px; border-radius: 50%;
+  background: var(--black); color: white;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 0.7rem; font-weight: 600; flex-shrink: 0;
+}
+.r-name { font-size: 0.85rem; font-weight: 500; color: var(--black); }
+.r-loc { font-size: 0.72rem; color: var(--silver); margin-top: 0.1rem; }
+
+/* ── CONTACT ── */
+#contact { background: var(--white); }
+.contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 80px; align-items: start; }
+.contact-items { display: flex; flex-direction: column; gap: 2rem; }
+.c-item { display: flex; gap: 1.25rem; }
+.c-icon {
+  width: 42px; height: 42px; flex-shrink: 0;
+  background: var(--black); border-radius: 2px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem;
+}
+.c-label { font-size: 0.7rem; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; color: var(--silver); margin-bottom: 0.3rem; }
+.c-val { font-size: 0.95rem; color: var(--charcoal); }
+.c-val a { color: var(--charcoal); text-decoration: none; font-weight: 500; }
+.c-val a:hover { color: var(--red); }
+
+.hours-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
+.hours-table td { font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
+.hours-table td:last-child { text-align: right; font-weight: 500; }
+.hours-table tr:last-child td { border-bottom: none; }
+.closed-day { color: var(--silver); }
+
+.map-wrap {
+  border: 1px solid var(--border); border-radius: 4px;
+  overflow: hidden; height: 300px;
+  background: var(--bg);
+}
+.map-wrap iframe { width: 100%; height: 100%; border: none; display: block; }
+.map-cta { margin-top: 1rem; }
+
+/* ── CTA BAND ── */
+.cta-band {
+  background: var(--black);
+  padding: 60px 2.5rem;
+  text-align: center;
+}
+.cta-band h2 { color: white; margin-bottom: 0.5rem; }
+.cta-band p { font-size: 1rem; font-weight: 300; color: var(--silver); margin-bottom: 2rem; }
+.btn-red {
+  display: inline-flex; align-items: center; gap: 0.5rem;
+  background: var(--red); color: white;
+  padding: 1rem 2.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 1rem; font-weight: 700; letter-spacing: 0.1em;
+  text-transform: uppercase; text-decoration: none;
+  border-radius: 2px;
+  transition: opacity 0.2s, transform 0.15s;
+}
+.btn-red:hover { opacity: 0.9; transform: translateY(-1px); }
+
+/* ── FOOTER ── */
+footer {
+  background: var(--charcoal);
+  padding: 2.5rem 2.5rem;
+  border-top: 3px solid var(--red);
+}
+.footer-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1.5rem;
+}
+.footer-logo {
+  font-family: 'Barlow Condensed', sans-serif;
+  font-weight: 800; font-size: 1.4rem;
+  letter-spacing: 0.06em; text-transform: uppercase; color: white;
+}
+.footer-logo .dot { color: var(--red); }
+.footer-meta { font-size: 0.75rem; color: var(--silver); margin-top: 0.2rem; }
+.footer-links { display: flex; gap: 1.5rem; flex-wrap: wrap; }
+.footer-links a { font-size: 0.75rem; color: var(--silver); text-decoration: none; letter-spacing: 0.06em; }
+.footer-links a:hover { color: white; }
+
+/* ── STICKY PHONE ── */
+.sticky-phone {
+  position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
+  background: var(--red); color: white;
+  padding: 0.85rem 1.4rem;
+  border-radius: 2px;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.9rem; font-weight: 700; letter-spacing: 0.06em;
+  text-decoration: none;
+  box-shadow: 0 4px 16px rgba(192,57,43,0.35);
+  transition: background 0.2s, transform 0.15s;
+  display: flex; align-items: center; gap: 0.5rem;
+}
+.sticky-phone:hover { background: #a93226; transform: translateY(-2px); }
+
+/* ── RESPONSIVE ── */
+@media (max-width: 900px) {
+  .hero { grid-template-columns: 1fr; padding-top: 100px; }
+  .hero-signage { display: none; }
+  .about-layout, .contact-grid { grid-template-columns: 1fr; gap: 3rem; }
+  .services-grid { grid-template-columns: repeat(2, 1fr); }
+  section { padding: 70px 1.5rem; }
+  nav { padding: 0 1.5rem; }
+  .nav-links { display: none; }
+}
+@media (max-width: 480px) {
+  .services-grid { grid-template-columns: 1fr; }
+  h1 { font-size: 3rem; }
+}
+
+/* ── ANIMATIONS ── */
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(20px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.hero-tag  { animation: fadeUp 0.5s ease 0.1s both; }
+h1         { animation: fadeUp 0.5s ease 0.2s both; }
+.hero-body { animation: fadeUp 0.5s ease 0.3s both; }
+.hero-btns { animation: fadeUp 0.5s ease 0.4s both; }
+.hero-signage { animation: fadeUp 0.5s ease 0.35s both; }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="nav-logo">Abbey<span class="dot">.</span>Autos</a>
+  <ul class="nav-links">
+    <li><a href="#services">Services</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#reviews">Reviews</a></li>
+    <li><a href="#contact">Find Us</a></li>
+    <li><a href="tel:02088543890" class="nav-cta">020 8854 3890</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<div style="padding-top: 64px; background: var(--white); border-bottom: 1px solid var(--border);">
+  <div class="hero">
+    <div>
+      <div class="hero-tag"><div class="hero-tag-line"></div> Woolwich, SE18 &nbsp;·&nbsp; Est. 1968</div>
+      <h1>Woolwich's<br>Trusted<br><span class="red">Garage.</span></h1>
+      <p class="hero-body">MOT testing, full servicing and body shop repairs — done properly, at a price that's fair. Serving SE London for over 57 years.</p>
+      <div class="hero-btns">
+        <a href="tel:02088543890" class="btn-primary">📞 &nbsp;020 8854 3890</a>
+        <a href="#services" class="btn-outline">Our Services →</a>
+      </div>
+    </div>
+    <div class="hero-signage">
+      <div class="signage-name">Abbey<br>Autos</div>
+      <div class="signage-sub">MOT · Servicing · Repairs</div>
+      <div class="signage-divider"></div>
+      <div class="signage-stats">
+        <div>
+          <div class="s-stat-num">57<sup>+</sup></div>
+          <div class="s-stat-label">Years trading</div>
+        </div>
+        <div>
+          <div class="s-stat-num">4.8<sup>★</sup></div>
+          <div class="s-stat-label">Google rating</div>
+        </div>
+        <div>
+          <div class="s-stat-num">100<sup>+</sup></div>
+          <div class="s-stat-label">Customer reviews</div>
+        </div>
+        <div>
+          <div class="s-stat-num">6<sup>days</sup></div>
+          <div class="s-stat-label">Mon – Sat</div>
+        </div>
+      </div>
+      <div class="signage-est">
+        <span>Est. 1968</span>
+        <span>1–2 Hillreach, SE18</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TICKER -->
+<div class="ticker">
+  <div class="ticker-inner">
+    <span>MOT Testing</span><span>Full Servicing</span><span>Body Shop Repairs</span><span>Air Conditioning</span><span>Engine Rebuilds</span><span>Brakes &amp; Exhausts</span><span>Tyres</span><span>Diagnostics</span><span>Gearbox Repairs</span><span>Suspension</span><span>Number Plates</span>
+    <span>MOT Testing</span><span>Full Servicing</span><span>Body Shop Repairs</span><span>Air Conditioning</span><span>Engine Rebuilds</span><span>Brakes &amp; Exhausts</span><span>Tyres</span><span>Diagnostics</span><span>Gearbox Repairs</span><span>Suspension</span><span>Number Plates</span>
+  </div>
+</div>
+
+<!-- SERVICES -->
+<section id="services">
+  <div class="section-inner">
+    <p class="section-tag">What we do</p>
+    <h2>Everything Your Car Needs</h2>
+    <p class="section-intro">From a routine MOT to a full engine rebuild — all done in-house, with the same standards we've held since 1968.</p>
+    <div class="services-grid">
+      <div class="service-card">
+        <div class="service-num">01</div>
+        <div class="service-name">MOT Testing</div>
+        <div class="service-desc">Class 4 MOT for cars, vans and taxis. Fast turnaround. Honest advice on any failures — no upselling.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">02</div>
+        <div class="service-name">Car Servicing</div>
+        <div class="service-desc">Oil changes, filters, belts and spark plugs. Interim to major service schedules. All makes and models.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">03</div>
+        <div class="service-name">Body Shop Repairs</div>
+        <div class="service-desc">Accident repairs, dents, scratches and resprays. Insurance jobs handled. Over five decades of bodywork experience.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">04</div>
+        <div class="service-name">Air Conditioning</div>
+        <div class="service-desc">Regas, leak testing and full A/C system repairs. Back to factory performance.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">05</div>
+        <div class="service-name">Engine &amp; Gearbox</div>
+        <div class="service-desc">Full engine rebuilds, gearbox overhauls, clutch replacements. Complex mechanical work is our bread and butter.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">06</div>
+        <div class="service-name">Brakes &amp; Suspension</div>
+        <div class="service-desc">Pads, discs, callipers and full suspension overhauls. Safety-critical work carried out to the highest standard.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">07</div>
+        <div class="service-name">Diagnostics</div>
+        <div class="service-desc">Modern diagnostic equipment for engine management, ABS and electrical faults. We find it — we fix it.</div>
+      </div>
+      <div class="service-card">
+        <div class="service-num">08</div>
+        <div class="service-name">Tyres &amp; Exhausts</div>
+        <div class="service-desc">All major tyre brands supplied and fitted. Full exhaust systems and sections. Same-day where possible.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <div class="section-inner">
+    <div class="about-layout">
+      <div>
+        <p class="section-tag">Our story</p>
+        <h2>Serving SE London Since 1968</h2>
+        <p class="about-body">We started on Hillreach in 1968 — and we're still here. Over 57 years, we've built a reputation no amount of advertising can buy: one satisfied customer at a time.</p>
+        <p class="about-body">Every job carries our warranty. Every price is fair. And when we say the car's ready, it's ready — done right, not just done fast.</p>
+        <ul class="trust-list">
+          <li><div class="trust-check">✓</div> All work fully warranted</li>
+          <li><div class="trust-check">✓</div> All makes and models welcome</li>
+          <li><div class="trust-check">✓</div> Competitive, honest pricing</li>
+          <li><div class="trust-check">✓</div> Class 4 MOT testing station</li>
+          <li><div class="trust-check">✓</div> Insurance work accepted</li>
+        </ul>
+      </div>
+      <div class="about-panel">
+        <div class="about-panel-header">Quick Info</div>
+        <div class="about-panel-body">
+          <div class="panel-row">
+            <span class="panel-label">Established</span>
+            <span class="panel-val">1968</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-label">Address</span>
+            <span class="panel-val">1–2 Hillreach<br>Woolwich SE18 4AJ</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-label">Phone</span>
+            <span class="panel-val"><a href="tel:02088543890" style="color:white;">020 8854 3890</a></span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-label">Mon – Fri</span>
+            <span class="panel-val">8:30 am – 5:30 pm</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-label">Saturday</span>
+            <span class="panel-val">8:30 am – 5:30 pm</span>
+          </div>
+          <div class="panel-row">
+            <span class="panel-label">Sunday</span>
+            <span class="panel-val" style="color:var(--silver);">Closed</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews">
+  <div class="section-inner">
+    <div class="reviews-top">
+      <div>
+        <p class="section-tag">What customers say</p>
+        <h2>Trusted Across SE London</h2>
+      </div>
+      <div class="google-score">
+        <div class="g-circle">G</div>
+        <div>
+          <div class="g-rating">4.8</div>
+          <div class="g-stars">★★★★★</div>
+          <div class="g-count">100+ Google reviews</div>
+        </div>
+      </div>
+    </div>
+    <div class="reviews-grid">
+      <div class="review-card">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Cannot fault this service. Top garage for any need you might have. I have used them for years and will recommend them to everyone I know."</p>
+        <div class="r-author">
+          <div class="r-avatar">OK</div>
+          <div>
+            <div class="r-name">Oksana K.</div>
+            <div class="r-loc">Plumstead · Google Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Our car was badly damaged in an accident. Abbey Autos had looked after us for years for MOTs — they stepped in when our insurer's approved garage had a months-long wait. Sorted it quickly and properly."</p>
+        <div class="r-author">
+          <div class="r-avatar">JW</div>
+          <div>
+            <div class="r-name">J. Watson</div>
+            <div class="r-loc">SE London · Verified Review</div>
+          </div>
+        </div>
+      </div>
+      <div class="review-card">
+        <div class="r-stars">★★★★★</div>
+        <p class="r-text">"Competitive prices, friendly staff, and the work is done right. Welcoming atmosphere and they actually explain what needs doing. Won't take my car anywhere else."</p>
+        <div class="r-author">
+          <div class="r-avatar">MA</div>
+          <div>
+            <div class="r-name">M. Ashworth</div>
+            <div class="r-loc">Woolwich · Google Review</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 2.5rem; text-align: center;">
+      <a href="https://www.google.com/maps/place/?q=place_id:ChIJ1zhWCvGo2EcRCL41OI7_LbM" target="_blank" rel="noopener" class="btn-outline">Read all reviews on Google →</a>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="section-inner">
+    <p class="section-tag">Find us</p>
+    <h2>Come and See Us</h2>
+    <p class="section-intro">Just off Woolwich Arsenal. On-site parking. No appointment needed for many jobs — call ahead for MOTs and bodywork.</p>
+    <div class="contact-grid">
+      <div class="contact-items">
+        <div class="c-item">
+          <div class="c-icon">📞</div>
+          <div>
+            <div class="c-label">Phone</div>
+            <div class="c-val"><a href="tel:02088543890">020 8854 3890</a> &nbsp;·&nbsp; <a href="tel:02088549102">020 8854 9102</a></div>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">📍</div>
+          <div>
+            <div class="c-label">Address</div>
+            <div class="c-val">1–2 Hillreach, Woolwich<br>London SE18 4AJ</div>
+          </div>
+        </div>
+        <div class="c-item">
+          <div class="c-icon">🕐</div>
+          <div>
+            <div class="c-label">Opening Hours</div>
+            <div class="c-val">
+              <table class="hours-table">
+                <tr><td>Monday – Friday</td><td>8:30 am – 5:30 pm</td></tr>
+                <tr><td>Saturday</td><td>8:30 am – 5:30 pm</td></tr>
+                <tr><td class="closed-day">Sunday</td><td class="closed-day">Closed</td></tr>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div>
+        <div class="map-wrap">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2484.4061393750007!2d0.0556797!3d51.487414099999995!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x47d8a8f10a5638d7%3A0xb32dfd8e3855be08!2sAbbey%20Autos%20Centre%20Ltd!5e0!3m2!1sen!2suk!4v1780031400317!5m2!1sen!2suk"
+            allowfullscreen="" loading="lazy"
+            referrerpolicy="no-referrer-when-downgrade"
+            title="Abbey Autos location — 1-2 Hillreach Woolwich SE18 4AJ">
+          </iframe>
+        </div>
+        <div class="map-cta">
+          <a href="tel:02088543890" class="btn-primary" style="width:100%; justify-content:center;">📞 &nbsp;Call to Book — 020 8854 3890</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA BAND -->
+<div class="cta-band">
+  <h2>Need Your Car Seen To?</h2>
+  <p>Call us or come straight in. We'll take a look and tell you honestly what's needed.</p>
+  <a href="tel:02088543890" class="btn-red">📞 &nbsp;020 8854 3890</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-inner">
+    <div>
+      <div class="footer-logo">Abbey<span class="dot">.</span>Autos</div>
+      <div class="footer-meta">Est. 1968 &nbsp;·&nbsp; 1–2 Hillreach, Woolwich SE18 4AJ &nbsp;·&nbsp; 020 8854 3890 &nbsp;/&nbsp; 020 8854 9102</div>
+    </div>
+    <div class="footer-links">
+      <a href="#services">Services</a>
+      <a href="#about">About</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#contact">Find Us</a>
+      <a href="tel:02088543890">Call Us</a>
+    </div>
+  </div>
+</footer>
+
+<!-- STICKY CALL -->
+<a href="tel:02088543890" class="sticky-phone">📞 020 8854 3890</a>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      e.target.style.opacity = '1';
+      e.target.style.transform = 'translateY(0)';
+      obs.unobserve(e.target);
+    }
+  });
+}, { threshold: 0.08 });
+
+document.querySelectorAll('.service-card, .review-card, .c-item').forEach(el => {
+  el.style.opacity = '0';
+  el.style.transform = 'translateY(16px)';
+  el.style.transition = 'opacity 0.45s ease, transform 0.45s ease';
+  obs.observe(el);
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(a => {
+  a.addEventListener('click', function(e) {
+    const t = document.querySelector(this.getAttribute('href'));
+    if (t) { e.preventDefault(); t.scrollIntoView({ behavior: 'smooth' }); }
+  });
+});
+</script>
+</body>
+</html>
