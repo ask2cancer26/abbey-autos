@@ -40,7 +40,7 @@ body {
   color: white;
   position: relative; z-index: 101;
 }
-.announce-bar a { color: white; font-weight: 700; text-decoration: underline; }
+.announce-bar a { color: white; font-weight: 700; text-decoration: none; border-bottom: 1px solid rgba(255,255,255,0.5); }
 
 /* ── NAV ── */
 nav {
@@ -114,7 +114,7 @@ nav {
 .hero {
   max-width: 1200px; margin: 0 auto;
   padding: 80px 2.5rem 90px;
-  display: grid; grid-template-columns: 1fr 400px;
+  display: grid; grid-template-columns: minmax(0, 1fr) 400px;
   gap: 60px; align-items: center;
 }
 .hero-tag {
@@ -162,6 +162,7 @@ h1 .red { color: var(--red); }
 /* Hero right card */
 .hero-card {
   background: var(--black); border-radius: 4px; overflow: hidden;
+  min-width: 340px;
 }
 .hero-card::before { content: ''; display: block; height: 4px; background: var(--red); }
 .hero-card-body { padding: 2rem 1.75rem; }
@@ -434,9 +435,9 @@ h2 {
 .c-val { font-size: 0.95rem; color: var(--charcoal); }
 .c-val a { color: var(--charcoal); text-decoration: none; font-weight: 500; }
 .c-val a:hover { color: var(--red); }
-.hours-table { width: 100%; border-collapse: collapse; margin-top: 0.5rem; }
-.hours-table td { font-size: 0.85rem; padding: 0.4rem 0; border-bottom: 1px solid var(--border); }
-.hours-table td:last-child { text-align: right; font-weight: 500; }
+.hours-table { width: 100%; border-collapse: collapse; margin-top: 0.75rem; }
+.hours-table td { font-size: 0.85rem; padding: 0.65rem 0; border-bottom: 1px solid var(--border); line-height: 1.4; }
+.hours-table td:last-child { text-align: right; font-weight: 500; padding-left: 1rem; }
 .hours-table tr:last-child td { border-bottom: none; }
 .closed-day { color: var(--silver); }
 .map-wrap { border: 1px solid var(--border); border-radius: 4px; overflow: hidden; height: 320px; }
@@ -600,7 +601,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
         <div class="signage-divider"></div>
         <div class="signage-stats">
           <div>
-            <div class="s-stat-num" data-target="57">0<sup>+</sup></div>
+            <div class="s-stat-num"><span class="count-up" data-target="57">0</span><sup>+</sup></div>
             <div class="s-stat-label">Years trading</div>
           </div>
           <div>
@@ -608,7 +609,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
             <div class="s-stat-label">Google rating</div>
           </div>
           <div>
-            <div class="s-stat-num" data-target="100">0<sup>+</sup></div>
+            <div class="s-stat-num"><span class="count-up" data-target="100">0</span><sup>+</sup></div>
             <div class="s-stat-label">Reviews</div>
           </div>
           <div>
@@ -772,7 +773,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
       <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=600&q=80');">
         <div class="gallery-overlay"><span>Servicing</span></div>
       </div>
-      <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1609630875171-b1321377ee65?w=600&q=80');">
+      <div class="gallery-item" style="background-image: url('https://images.unsplash.com/photo-1492144534655-ae79c964c9d7?w=600&q=80');">
         <div class="gallery-overlay"><span>Diagnostics</span></div>
       </div>
     </div>
@@ -964,7 +965,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
         <a href="#reviews">Reviews</a>
         <a href="#contact">Find Us</a>
       </div>
-      <div class="footer-meta" style="margin-top:0.75rem;">© 2025 Abbey Autos Centre Ltd</div>
+      <div class="footer-meta" style="margin-top:0.75rem;">© 2026 Abbey Autos Centre Ltd</div>
     </div>
   </div>
 </footer>
