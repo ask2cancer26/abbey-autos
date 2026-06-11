@@ -631,6 +631,32 @@ footer {
 .spurwise-credit a { color: rgba(255,255,255,0.35); text-decoration: none; }
 .spurwise-credit a:hover { color: rgba(255,255,255,0.6); }
 
+/* ── TRUST STRIP ── */
+.trust-strip {
+  background: var(--red);
+  padding: 0.85rem 2.5rem;
+  overflow: hidden;
+}
+.trust-inner {
+  max-width: 1160px; margin: 0 auto;
+  display: flex; justify-content: space-between;
+  align-items: center; flex-wrap: wrap; gap: 0.75rem 2rem;
+}
+.trust-item {
+  display: flex; align-items: center; gap: 0.5rem;
+  font-family: 'Barlow Condensed', sans-serif;
+  font-size: 0.85rem; font-weight: 600;
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: white; white-space: nowrap;
+}
+.trust-icon {
+  font-size: 0.9rem; font-weight: 800;
+}
+@media (max-width: 768px) {
+  .trust-inner { justify-content: flex-start; }
+  .trust-item { font-size: 0.78rem; }
+}
+
 /* ── STICKY PHONE ── */
 .sticky-phone {
   position: fixed; bottom: 1.5rem; right: 1.5rem; z-index: 200;
@@ -745,7 +771,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
             <div class="s-stat-label">Google rating</div>
           </div>
           <div>
-            <div class="s-stat-num"><span class="count-up" data-target="100">0</span><sup>+</sup></div>
+            <div class="s-stat-num"><span class="count-up" data-target="316">0</span><sup>+</sup></div>
             <div class="s-stat-label">Reviews</div>
           </div>
           <div>
@@ -765,7 +791,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
 <!-- TICKER -->
 <div class="ticker">
   <div class="ticker-inner">
-    <span>MOT Testing</span><span>Full Servicing</span><span>Body Shop Repairs</span><span>Air Conditioning</span><span>Engine Rebuilds</span><span>Brakes &amp; Exhausts</span><span>Tyres</span><span>Diagnostics</span><span>Gearbox Repairs</span><span>Suspension</span><span>Clutches</span><span>Number Plates</span><span>Chassis Welding</span>
+    <span>MOT Testing</span><span>Full Servicing</span><span>Body Shop Repairs</span><span>Air Conditioning</span><span>Engine Rebuilds</span><span>Brakes &amp; Exhausts</span><span>Tyres</span><span>Diagnostics</span><span>Gearbox Repairs</span><span>Suspension</span><span>Clutches</span><span>Number Plates</span><span>Chassis Welding</span><span>Total Resprays</span><span>CV Joints</span><span>Timing Belts</span><span>Fuel Pumps</span><span>Starter Motors</span><span>Vehicle Electrics</span><span>Engine Tuning</span><span>Air Conditioning</span><span>Oil Changes</span>
     <span>MOT Testing</span><span>Full Servicing</span><span>Body Shop Repairs</span><span>Air Conditioning</span><span>Engine Rebuilds</span><span>Brakes &amp; Exhausts</span><span>Tyres</span><span>Diagnostics</span><span>Gearbox Repairs</span><span>Suspension</span><span>Clutches</span><span>Number Plates</span>
   </div>
 </div>
@@ -779,7 +805,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
       <div class="stat-divider"></div>
     </div>
     <div class="stat-block">
-      <div class="stat-num"><span class="count-up" data-target="100">0</span><span class="stat-suffix">+</span></div>
+      <div class="stat-num"><span class="count-up" data-target="300">0</span><span class="stat-suffix">+</span></div>
       <div class="stat-label">Google Reviews</div>
       <div class="stat-divider"></div>
     </div>
@@ -789,10 +815,21 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
       <div class="stat-divider"></div>
     </div>
     <div class="stat-block">
-      <div class="stat-num"><span class="count-up" data-target="8">0</span><span class="stat-suffix"></span></div>
+      <div class="stat-num"><span class="count-up" data-target="30">0</span><span class="stat-suffix">+</span></div>
       <div class="stat-label">Services Offered</div>
       <div class="stat-divider"></div>
     </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP -->
+<div class="trust-strip">
+  <div class="trust-inner">
+    <div class="trust-item"><span class="trust-icon">✓</span><span>All Makes &amp; Models</span></div>
+    <div class="trust-item"><span class="trust-icon">✓</span><span>Insurance Work Accepted</span></div>
+    <div class="trust-item"><span class="trust-icon">✓</span><span>MOT from £54.85</span></div>
+    <div class="trust-item"><span class="trust-icon">✓</span><span>No Appointment Needed for Most Jobs</span></div>
+    <div class="trust-item"><span class="trust-icon">✓</span><span>Est. 1968 — Family Run</span></div>
   </div>
 </div>
 
@@ -811,22 +848,22 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
       <div class="service-card">
         <div class="service-num">02</div>
         <div class="service-icon">🔧</div><div class="service-name">Car Servicing</div>
-        <div class="service-desc">Full and interim service schedules covering all makes and models — oil, filters, belts, timing, brakes, drive shafts, steering, suspension and more. Preventative inspections also available.</div>
+        <div class="service-desc">Full and interim service schedules — oil changes, filters, timing belts, spark plugs, brakes, drive shafts, steering and suspension. All makes and models. Preventative inspections also available.</div>
       </div>
       <div class="service-card">
         <div class="service-num">03</div>
         <div class="service-icon">🚗</div><div class="service-name">Body Shop Repairs</div>
-        <div class="service-desc">Accident repairs, dents, scratches, resprays, chassis welding and plastic bumper repairs. Insurance claims handled in-house. Over five decades of bodywork experience.</div>
+        <div class="service-desc">Accident repairs, dents, scratches, total resprays, chassis welding and plastic bumper repairs. Insurance claims handled in-house. Over five decades of bodywork experience.</div>
       </div>
       <div class="service-card">
         <div class="service-num">04</div>
         <div class="service-icon">❄️</div><div class="service-name">Air Conditioning</div>
-        <div class="service-desc">Regas, leak testing and full A/C system repairs. Back to factory performance.</div>
+        <div class="service-desc">Full AC regas, leak detection, system diagnostics and repairs. Car air conditioning restored to factory performance. All refrigerant types.</div>
       </div>
       <div class="service-card">
         <div class="service-num">05</div>
         <div class="service-icon">⚙️</div><div class="service-name">Engine &amp; Gearbox</div>
-        <div class="service-desc">Full engine rebuilds, gearbox overhauls, clutch replacements. Complex mechanical work is our bread and butter.</div>
+        <div class="service-desc">Engine rebuilds and tuning, gearbox overhauls, clutch replacements, CV joints, timing belts, fuel pumps and starter motors. Complex mechanical work is our bread and butter.</div>
       </div>
       <div class="service-card">
         <div class="service-num">06</div>
@@ -836,7 +873,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
       <div class="service-card">
         <div class="service-num">07</div>
         <div class="service-icon">💻</div><div class="service-name">Diagnostics</div>
-        <div class="service-desc">Latest computer diagnostic tools to interrogate all vehicle systems — engine management, ABS, electrics and more. Most faults diagnosed within the hour.</div>
+        <div class="service-desc">Latest diagnostic equipment covering engine management, ABS, vehicle electrics and fault finding. Engine tuning and system checks. Most faults diagnosed within the hour.</div>
       </div>
       <div class="service-card">
         <div class="service-num">08</div>
@@ -1003,7 +1040,7 @@ h1           { animation: fadeUp 0.5s ease 0.2s both; }
         <div>
           <div class="g-rating">4.8</div>
           <div class="g-stars">★★★★★</div>
-          <div class="g-count">100+ Google reviews</div>
+          <div class="g-count">316 Google reviews</div>
         </div>
       </div>
     </div>
