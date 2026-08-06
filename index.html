@@ -9,10 +9,14 @@
      It must stay out of search until it goes live on the client's own domain,
      otherwise an unapproved site for a real business gets indexed.
 
-     AT GO-LIVE, two edits:
+     Absolute URLs currently point at the demo (abbey-autos.netlify.app) so
+     link previews work when the demo is shared for approval.
+
+     AT GO-LIVE, three edits:
        1. robots below:  noindex, nofollow  ->  index, follow, max-image-preview:large
-       2. find/replace   https://www.abbeyautos.co.uk/   with the live URL
+       2. find/replace   https://abbey-autos.netlify.app/   with the live URL
           (canonical, og:url, og:image, twitter:image, and the JSON-LD block)
+       3. delete _headers, or drop the X-Robots-Tag line from it
      ========================================================================== -->
 <meta name="robots" content="noindex, nofollow">
 
@@ -20,7 +24,7 @@
 <meta name="description" content="Abbey Autos Centre Ltd — family-run garage in Woolwich since 1968. DVSA approved MOT testing station, servicing, mechanical repairs and our own body shop. 020 8854 3890.">
 <meta name="theme-color" content="#16181b">
 
-<link rel="canonical" href="https://www.abbeyautos.co.uk/">
+<link rel="canonical" href="https://abbey-autos.netlify.app/">
 <link rel="icon" href="favicon.svg" type="image/svg+xml">
 <link rel="apple-touch-icon" href="favicon.svg">
 
@@ -29,15 +33,15 @@
 <meta property="og:site_name" content="Abbey Autos Centre">
 <meta property="og:title" content="Abbey Autos Centre | MOT, Servicing &amp; Body Repairs | Woolwich SE18">
 <meta property="og:description" content="DVSA approved MOT testing station, servicing, mechanical repairs and our own body shop — on Hillreach, Woolwich since 1968.">
-<meta property="og:url" content="https://www.abbeyautos.co.uk/">
-<meta property="og:image" content="https://www.abbeyautos.co.uk/img/hero-1400.jpg">
+<meta property="og:url" content="https://abbey-autos.netlify.app/">
+<meta property="og:image" content="https://abbey-autos.netlify.app/img/hero-1400.jpg">
 <meta property="og:image:width" content="1400">
 <meta property="og:image:height" content="1054">
 <meta property="og:image:alt" content="Abbey Autos Centre forecourt and workshop bays, Hillreach, Woolwich">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Abbey Autos Centre | MOT, Servicing &amp; Body Repairs | Woolwich SE18">
 <meta name="twitter:description" content="DVSA approved MOT testing station, servicing, mechanical repairs and our own body shop — on Hillreach, Woolwich since 1968.">
-<meta name="twitter:image" content="https://www.abbeyautos.co.uk/img/hero-1400.jpg">
+<meta name="twitter:image" content="https://abbey-autos.netlify.app/img/hero-1400.jpg">
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -764,11 +768,11 @@ footer{background:var(--graphite);color:rgba(255,255,255,.72);padding:60px 0 36p
 {
   "@context": "https://schema.org",
   "@type": "AutoRepair",
-  "@id": "https://www.abbeyautos.co.uk/#business",
+  "@id": "https://abbey-autos.netlify.app/#business",
   "name": "Abbey Autos Centre Ltd",
   "alternateName": "Abbey Autos",
-  "url": "https://www.abbeyautos.co.uk/",
-  "image": "https://www.abbeyautos.co.uk/img/hero-1400.jpg",
+  "url": "https://abbey-autos.netlify.app/",
+  "image": "https://abbey-autos.netlify.app/img/hero-1400.jpg",
   "telephone": "+442088543890",
   "email": "info@abbeyautos.co.uk",
   "foundingDate": "1968",

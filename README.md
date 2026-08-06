@@ -6,27 +6,42 @@ No build step: plain HTML, inline CSS, one inline script. Deploy the repo root a
 ```
 index.html      the site
 thanks.html     form success page (form posts here)
+_headers        Netlify response headers (carries the pre-launch noindex)
 favicon.svg
 img/            hero + section photography, WebP with JPEG fallback
 ```
+
+Currently deployed for client review at **https://abbey-autos.netlify.app/**
 
 ---
 
 ## ⚠️ Before go-live
 
-This site is **not yet client-approved** and is currently set to stay out of search.
-Two edits flip it live:
+This site is **not yet client-approved** and is deliberately kept out of search —
+an unapproved site for a real, trading business must not compete with their
+actual listing. Three edits flip it live:
 
-1. **`index.html` line ~5** — `<meta name="robots" content="noindex, nofollow">`
+1. **`index.html`, the PRE-LAUNCH block at the top of `<head>`** —
+   `<meta name="robots" content="noindex, nofollow">`
    → `<meta name="robots" content="index, follow, max-image-preview:large">`
-2. **Find/replace `https://www.abbeyautos.co.uk/`** with the real live URL.
+2. **Find/replace `https://abbey-autos.netlify.app/`** with the real live URL.
    It appears in: `<link rel="canonical">`, `og:url`, `og:image`, `twitter:image`,
    and the JSON-LD block at the bottom of the file.
+3. **`_headers`** — delete the `X-Robots-Tag: noindex, nofollow` line. Keep the
+   two security headers below it.
 
 Then submit the URL in Google Search Console and confirm the business's Google
 Business Profile points at the same domain.
 
 `thanks.html` stays `noindex` permanently — that's intentional.
+
+### While it's still a demo
+
+The Netlify URL is public to anyone who has the link. If the client wants it
+genuinely private during review, Netlify's site-level password protection is
+the way — it's a dashboard setting on a paid plan, not something this repo can
+configure. The `noindex` headers keep it out of search, but they don't keep it
+behind a login.
 
 ---
 

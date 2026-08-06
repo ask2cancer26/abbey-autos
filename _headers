@@ -1,0 +1,17 @@
+# Netlify response headers.
+
+/*
+  # --- PRE-LAUNCH ONLY -----------------------------------------------------
+  # Belt-and-braces with the <meta name="robots"> tag in index.html. The meta
+  # tag only covers the HTML; this also keeps the photography out of Google
+  # Images while the site is an unapproved demo.
+  # DELETE THIS LINE AT GO-LIVE (see the PRE-LAUNCH block in index.html).
+  X-Robots-Tag: noindex, nofollow
+  # -------------------------------------------------------------------------
+
+  # Keep these after launch.
+  X-Content-Type-Options: nosniff
+  Referrer-Policy: strict-origin-when-cross-origin
+
+# Deliberately no robots.txt: a "Disallow: /" would stop crawlers reading the
+# noindex directives above, which is the opposite of what we want.
