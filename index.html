@@ -355,8 +355,9 @@ footer{background:var(--graphite);color:rgba(255,255,255,.72);padding:60px 0 36p
 <!-- shared SVG symbols -->
 <svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
   <defs>
-    <linearGradient id="starFill48"><stop offset="96%" stop-color="#f0b429"/><stop offset="96%" stop-color="rgba(255,255,255,.28)"/></linearGradient>
-    <linearGradient id="starFill48d"><stop offset="96%" stop-color="#f0b429"/><stop offset="96%" stop-color="#dfe1e4"/></linearGradient>
+    <!-- star fill % is rating/5 — kept in sync by scripts/sync-google-rating.mjs -->
+    <linearGradient id="starFill"><stop offset="90%" stop-color="#f0b429"/><stop offset="90%" stop-color="rgba(255,255,255,.28)"/></linearGradient>
+    <linearGradient id="starFillLight"><stop offset="90%" stop-color="#f0b429"/><stop offset="90%" stop-color="#dfe1e4"/></linearGradient>
     <symbol id="starRow" viewBox="0 0 100 19">
       <path d="M10 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8L1.6 7.7l5.8-.8L10 1.6z
                M30 1.6l2.6 5.3 5.8.8-4.2 4.1 1 5.8-5.2-2.7-5.2 2.7 1-5.8-4.2-4.1 5.8-.8L30 1.6z
@@ -425,10 +426,10 @@ footer{background:var(--graphite);color:rgba(255,255,255,.72);padding:60px 0 36p
   <div class="cred-grid">
     <div class="cred">
       <div class="cred-top">
-        <svg class="stars" viewBox="0 0 100 19" aria-hidden="true"><use href="#starRow" fill="url(#starFill48)"/></svg>
-        4.8 / 5
+        <svg class="stars" viewBox="0 0 100 19" aria-hidden="true"><use href="#starRow" fill="url(#starFill)"/></svg>
+        <span data-rating>4.5</span> / 5
       </div>
-      <div class="cred-sub"><a href="https://maps.google.com/?cid=12911254494013406728" target="_blank" rel="noopener">316 Google reviews</a></div>
+      <div class="cred-sub"><a href="https://maps.google.com/?cid=12911254494013406728" target="_blank" rel="noopener"><span data-review-count>320</span> Google reviews</a></div>
     </div>
     <div class="cred">
       <div class="cred-top">DVSA approved</div>
@@ -584,7 +585,7 @@ footer{background:var(--graphite);color:rgba(255,255,255,.72);padding:60px 0 36p
           <source type="image/webp" srcset="img/about-800.webp 800w, img/about-1200.webp 1200w" sizes="(max-width:900px) 100vw, 560px">
           <img src="img/about-800.jpg" srcset="img/about-800.jpg 800w, img/about-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 560px"
                alt="Chrome Abbey Autos sign in the reception at 1–2 Hillreach, reading MOT, servicing, repairs"
-               width="800" height="706" loading="lazy" decoding="async">
+               width="800" height="718" loading="lazy" decoding="async">
         </picture>
       </div>
       <div>
@@ -603,9 +604,9 @@ footer{background:var(--graphite);color:rgba(255,255,255,.72);padding:60px 0 36p
     <p class="eyebrow">Reviews</p>
     <h2>What our customers say</h2>
     <div class="rev-head">
-      <svg class="rev-stars" viewBox="0 0 100 19" role="img" aria-label="Rated 4.8 out of 5"><use href="#starRow" fill="url(#starFill48d)"/></svg>
-      <span class="rev-score">4.8 / 5</span>
-      <span class="rev-count">from 316 Google reviews</span>
+      <svg class="rev-stars" viewBox="0 0 100 19" role="img" data-rating-label aria-label="Rated 4.5 out of 5"><use href="#starRow" fill="url(#starFillLight)"/></svg>
+      <span class="rev-score"><span data-rating>4.5</span> / 5</span>
+      <span class="rev-count">from <span data-review-count>320</span> Google reviews</span>
     </div>
     <div class="rev-grid">
       <div class="rev">
@@ -627,7 +628,7 @@ footer{background:var(--graphite);color:rgba(255,255,255,.72);padding:60px 0 36p
         <div class="rev-src">Google review &middot; Woolwich</div>
       </div>
     </div>
-    <a class="rev-link" href="https://maps.google.com/?cid=12911254494013406728" target="_blank" rel="noopener">Read all 316 reviews on Google &rarr;</a>
+    <a class="rev-link" href="https://maps.google.com/?cid=12911254494013406728" target="_blank" rel="noopener">Read all <span data-review-count>320</span> reviews on Google &rarr;</a>
   </div>
 </section>
 
@@ -665,7 +666,7 @@ footer{background:var(--graphite);color:rgba(255,255,255,.72);padding:60px 0 36p
           <source type="image/webp" srcset="img/visit-800.webp 800w, img/visit-1200.webp 1200w" sizes="(max-width:900px) 100vw, 560px">
           <img class="visit-img" src="img/visit-800.jpg" srcset="img/visit-800.jpg 800w, img/visit-1200.jpg 1200w" sizes="(max-width:900px) 100vw, 560px"
                alt="Reception and waiting area entrance at Abbey Autos, 1–2 Hillreach"
-               width="800" height="646" loading="lazy" decoding="async">
+               width="800" height="633" loading="lazy" decoding="async">
         </picture>
         <div class="map">
           <iframe
@@ -814,8 +815,8 @@ footer{background:var(--graphite);color:rgba(255,255,255,.72);padding:60px 0 36p
   ],
   "aggregateRating": {
     "@type": "AggregateRating",
-    "ratingValue": "4.8",
-    "reviewCount": "316",
+    "ratingValue": "4.5",
+    "reviewCount": "320",
     "bestRating": "5",
     "worstRating": "1"
   },

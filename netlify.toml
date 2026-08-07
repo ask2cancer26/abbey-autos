@@ -1,0 +1,18 @@
+# Static site — the "build" only refreshes the Google rating in index.html.
+# The sync script never fails: without GOOGLE_MAPS_API_KEY it logs and exits 0,
+# leaving the committed numbers in place. The `|| true` is belt and braces.
+
+[build]
+  command = "node scripts/sync-google-rating.mjs || true"
+  publish = "."
+  functions = "netlify/functions"
+
+[build.environment]
+  NODE_VERSION = "20"
+
+# Deploy previews should never call the API — one call per deploy is plenty.
+[context.deploy-preview]
+  command = "echo 'skipping rating sync on deploy previews'"
+
+[context.branch-deploy]
+  command = "echo 'skipping rating sync on branch deploys'"

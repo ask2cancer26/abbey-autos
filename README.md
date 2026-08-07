@@ -4,12 +4,18 @@ Static single-page site for Abbey Autos Centre Ltd, 1–2 Hillreach, Woolwich SE
 No build step: plain HTML, inline CSS, one inline script. Deploy the repo root as-is.
 
 ```
-index.html      the site
-thanks.html     form success page (form posts here)
-_headers        Netlify response headers (carries the pre-launch noindex)
+index.html                          the site
+thanks.html                         form success page (form posts here)
+_headers                            Netlify response headers (pre-launch noindex)
+netlify.toml                        build config
 favicon.svg
-img/            hero + section photography, WebP with JPEG fallback
+img/                                photography, WebP with JPEG fallback
+scripts/sync-google-rating.mjs      writes the live Google rating into index.html
+netlify/functions/refresh-rating.mjs  daily cron that triggers a rebuild
 ```
+
+There is no framework and no bundler. The "build" is one script that refreshes
+the Google rating; everything else is served exactly as committed.
 
 Currently deployed for client review at **https://abbey-autos.netlify.app/**
 
@@ -64,6 +70,65 @@ These would each strengthen it, but only once confirmed:
 
 ---
 
+## Google rating — keeping it current
+
+The rating and review count appear in four places on the page and once in the
+JSON-LD. All of them are driven by `scripts/sync-google-rating.mjs`, so they
+can never drift apart from each other.
+
+**Never edit the numbers by hand.** Run:
+
+```bash
+node scripts/sync-google-rating.mjs --check              # is the page stale?
+node scripts/sync-google-rating.mjs --rating 4.5 --count 320   # set manually
+node scripts/sync-google-rating.mjs                      # fetch from Google
+```
+
+The script updates the two display figures, the star-bar fill percentage, the
+`aria-label` on the rating, and `ratingValue` / `reviewCount` in the JSON-LD.
+
+### Turning on the automatic daily refresh
+
+Nothing below is required — without it the committed numbers simply stay put,
+and you update them with `--rating`/`--count` whenever the client mentions it.
+
+1. **Google Cloud** — create a project, enable **Places API (New)**, create an
+   API key. Billing must be enabled on the project. Restrict the key to the
+   Places API. It is only ever used inside the Netlify build, never in the
+   browser, so it does not need a referrer restriction.
+2. **Netlify → Site configuration → Environment variables** — add
+   `GOOGLE_MAPS_API_KEY`. Optionally `GOOGLE_PLACE_ID` (it defaults to
+   `ChIJ1zhWCvGo2EcRCL41OI7_LbM`, Abbey Autos Centre Ltd).
+3. **Netlify → Build & deploy → Build hooks** — add a hook called
+   "Daily rating refresh" pointing at the production branch, and put its URL in
+   an environment variable called `NETLIFY_BUILD_HOOK`.
+
+That's it. `netlify/functions/refresh-rating.mjs` fires at 04:15 UTC daily,
+pokes the build hook, and the rebuild pulls the current figures. One API call
+per day — check current Places API pricing and free-tier allowance before
+switching it on, but at ~30 calls a month this is about as small as usage gets.
+
+### Things worth knowing
+
+- **Failure is safe.** No key, API down, malformed response, implausible
+  numbers — the script logs, leaves `index.html` alone and exits 0. The build
+  never breaks and the site never shows a wrong figure.
+- **Sanity guard.** It refuses to write if the review count drops by more than
+  30%, which is the signature of a wrong place ID or a bad response.
+- **Rounding.** Displayed to one decimal, matching how Google itself shows it.
+- **The JSON-LD `aggregateRating` will not put stars in Google's results.**
+  Google does not show review rich results for self-serving `LocalBusiness`
+  markup, and reviews sourced from a third party (Google itself, here) are
+  outside their review-snippet guidelines. It is kept because it is accurate
+  and other consumers read it, but do not expect SEO gain from it. If you would
+  rather not carry it at all, delete the `aggregateRating` block from the
+  JSON-LD — nothing else depends on it.
+- **Attribution.** Google requires Places data to be attributed. The page
+  already labels the figures as Google reviews and links to the Google listing,
+  which covers it.
+
+---
+
 ## Photography
 
 All images are the client's own photos, re-processed — nothing was shot new and
@@ -80,7 +145,21 @@ Processing applied:
   "Catalysts Tested / Diesels Tested" board and two technicians working on a
   car. That is the strongest credibility asset on the page, so the crop now
   leads with it.
-- **about / visit** — trimmed clutter at the frame edges, levelled, sharpened.
+- **visit** — the facade was leaning ~2.3 degrees with converging verticals.
+  Corrected with a vertical-vanishing-point keystone plus rotation; verticals
+  now sit within 0.1 degrees of plumb.
+- **about** — verticals were 2.4 degrees off, pure camera roll, fixed with a
+  rotation. Deliberately *not* perspective-corrected: the wall is shot
+  obliquely on purpose, so its horizontals are meant to converge. Flattening
+  it was tested at 35% and 100% strength and both looked worse than the
+  rotation alone — the sign tilted harder and the chrome lettering stretched.
+- Both then cropped to the largest rectangle fully inside the corrected frame,
+  so no smeared edges.
+
+**Straightening rule of thumb:** if the subject is a flat facade shot roughly
+head-on (hero, MOT, visit), correct the perspective. If it is a surface shot at
+an angle on purpose (about), only correct the roll — the receding lines are
+what give it depth, and removing them makes it look wrong.
 
 To re-export after replacing a source photo, the recipe is: crop → mild
 contrast/colour → Lanczos resize → unsharp mask → save WebP q84 + progressive
