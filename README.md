@@ -163,9 +163,36 @@ what give it depth, and removing them makes it look wrong.
 
 To re-export after replacing a source photo, the recipe is: crop → mild
 contrast/colour → Lanczos resize → unsharp mask → save WebP q84 + progressive
-JPEG q84 at two widths (three for the hero). Keep the `width`/`height`
-attributes in the markup in sync with the exported files or the page will shift
-while loading.
+JPEG q84 at two widths (three for the hero).
+
+### Keep the width/height attributes accurate — the layout depends on them
+
+The section images (`.split-img`, `.about-img`, `.visit-img`) are sized
+`width:100%; height:auto`. They have **no fixed height in CSS**: the browser
+derives each box's aspect ratio from the `width` and `height` attributes on the
+`<img>`. So the image is never cropped at any viewport, and the reserved space
+is always exactly right (no layout shift).
+
+If you swap a photo, update those two attributes to the exported pixel
+dimensions. Get them wrong and the box will be the wrong shape.
+
+This replaced fixed pixel heights, which caused a real bug: below the 900px
+breakpoint the layout is single-column, so the image container grew from 390px
+to 852px wide while its height stayed pinned at 280–340px. On a phone that
+happened to land near the photo's natural ratio, but on a tablet the box became
+a 2:1–3:1 letterbox and `object-fit:cover` threw away **half of every image** —
+including the "MOT TESTING CENTRE" sign and the word "RECEPTION", the two most
+credibility-carrying details on the page. Never reintroduce a fixed height on
+these.
+
+The hero is different and *does* crop deliberately — it is a full-bleed
+background, so it keeps `object-fit:cover` with a `object-position` tuned per
+breakpoint.
+
+Below 900px the media blocks cap at `max-width:560px` and centre, so a wide
+tablet does not get a 740px-tall image. For `#visit` the cap is on the
+`.visit-media` wrapper rather than the image, so the photo, the map and the
+"Get directions" link all line up as one block.
 
 ---
 
