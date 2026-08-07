@@ -41,6 +41,36 @@ Business Profile points at the same domain.
 
 `thanks.html` stays `noindex` permanently — that's intentional.
 
+### ⚠️ Enquiries do not reach anyone until this is done
+
+**This is launch-blocking and it cannot be fixed in this repo.** The form is
+correctly wired for Netlify to *capture* submissions, but capturing and
+notifying are separate things. With no notification configured, an enquiry is
+recorded in the Netlify dashboard and nobody is told — which is worse than a
+broken form, because everyone assumes it works.
+
+In the Netlify dashboard:
+
+1. **Forms → settings** — confirm form detection is enabled. If it is off,
+   submissions are not captured at all.
+2. **Forms → Form notifications → Add notification → Email notification.**
+   Select the `enquiry` form, send to `info@abbeyautos.co.uk`.
+3. Add a **second** notification to whoever maintains the site, so missed
+   enquiries are visible without relying on the client to report them.
+4. Submit one real test enquiry and confirm it arrives.
+
+Then tell the client two things, or they will report the form as broken:
+
+- The notification is sent by Netlify, not from `abbeyautos.co.uk`, so the
+  first one often lands in **junk**. Have them whitelist it.
+- The email field on the form is **optional** by design (the form is
+  phone-first), so some enquiries will have no reply-to address. The phone
+  number is the intended route on those.
+
+Spam protection is currently the honeypot only, which stops basic bots. If junk
+starts arriving, enable Netlify's reCAPTCHA option on the form. Note the free
+tier includes 100 submissions a month and spam counts toward it.
+
 ### While it's still a demo
 
 The Netlify URL is public to anyone who has the link. If the client wants it
